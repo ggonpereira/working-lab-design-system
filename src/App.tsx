@@ -1,7 +1,7 @@
-import React from "react";
+import "./styles/global.css";
 
 const App = () => {
-  return <div>Hello World</div>;
+  return <h1 className="font-bold text-5xl text-violet-500">Hello World</h1>;
 };
 
 export default App;
