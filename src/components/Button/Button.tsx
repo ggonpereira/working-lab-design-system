@@ -8,7 +8,7 @@ export interface ButtonProps {
   handleOnClick?: () => void;
 }
 
-const Button = ({ children, asChild, handleOnClick }: ButtonProps) => {
+export const Button = ({ children, asChild, handleOnClick }: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
 
   return (
@@ -22,5 +22,3 @@ const Button = ({ children, asChild, handleOnClick }: ButtonProps) => {
     </Comp>
   );
 };
-
-export default Button;

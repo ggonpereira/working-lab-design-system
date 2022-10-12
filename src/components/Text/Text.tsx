@@ -8,7 +8,7 @@ export interface TextProps {
   asChild?: boolean;
 }
 
-const Text = ({ size = "md", children, asChild }: TextProps) => {
+export const Text = ({ size = "md", children, asChild }: TextProps) => {
   const Comp = asChild ? Slot : "span";
 
   return (
@@ -23,5 +23,3 @@ const Text = ({ size = "md", children, asChild }: TextProps) => {
     </Comp>
   );
 };
-
-export default Text;

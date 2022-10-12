@@ -8,7 +8,7 @@ export interface HeadingProps {
   asChild?: boolean;
 }
 
-const Heading = ({ size = "md", children, asChild }: HeadingProps) => {
+export const Heading = ({ size = "md", children, asChild }: HeadingProps) => {
   const Comp = asChild ? Slot : "h2";
 
   return (
@@ -23,5 +23,3 @@ const Heading = ({ size = "md", children, asChild }: HeadingProps) => {
     </Comp>
   );
 };
-
-export default Heading;
