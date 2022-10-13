@@ -14,6 +14,8 @@
 
 <p align="center">A project created using ReactJS, TypeScript, Storybook, Tailwind CSS, Jest and Radix. This was developed through Ignite Lab lessons (by Rocketseat), where we developed a design system using Figma to the design stuff and project structure, and the application itself was done using React and its ecosystem! 👊🏼</p>
 
+- [**Figma Design System**](https://www.figma.com/file/jxS4or0l424YvzTFvvxUgY/Inigite-Lab-Design-System?node-id=0%3A1)
+
 ---
 
 <h2>Technologies 🚀</h2>
