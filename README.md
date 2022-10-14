@@ -39,6 +39,7 @@
 - Could use cookies as a way to save my user token
 - Could create an API for the sign in
 - Could create more pages
+- Could improve tests
 
 etc...
 
