@@ -1,3 +1,4 @@
+import axios from "axios";
 import { User } from "../types";
 
 const mockEmail = "johndoe1@gmail.com";
@@ -15,19 +16,18 @@ interface SignInSuccessfulResponse {
 
 type SignInRequestResponse = SignInSuccessfulResponse;
 
-export const signInRequest = ({ email, password }: SignInPayload) =>
-  new Promise<SignInRequestResponse>((resolve, reject) => {
-    if (email === mockEmail && password === mockPassword) {
-      const accessToken = "nh6L2kzjQK5prw9q7V532FTNFm3ZaPKWCUq65w7";
+export const signInRequest = async ({ email, password }: SignInPayload) => {
+  const response = await axios.post("/user", { email, password });
 
-      const user = {
-        firstName: "John",
-        lastName: "Doe",
-        email: mockEmail,
-        age: 25,
-      };
-      return setTimeout(() => resolve({ accessToken, user }), 250);
-    }
+  // instead of returning a mock value, should return the response itself
 
-    setTimeout(() => reject(new Error("Wrong credentials!")), 250);
-  });
+  const accessToken = "nh6L2kzjQK5prw9q7V532FTNFm3ZaPKWCUq65w7";
+  const user = {
+    firstName: "John",
+    lastName: "Doe",
+    email: mockEmail,
+    age: 25,
+  };
+
+  return { accessToken, user };
+};

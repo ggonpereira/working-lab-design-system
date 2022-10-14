@@ -56,17 +56,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     reset: UseFormReset<any>
   ) => {
     // TODO: this `signInRequest` should be a real API call
-    try {
-      const { accessToken, user } = await signInRequest(signInPayload);
+    const { accessToken, user } = await signInRequest(signInPayload);
 
-      saveUserDataToLocalStorage({ accessToken, ...user });
+    saveUserDataToLocalStorage({ accessToken, ...user });
 
-      // TODO: instead of an alert, should redirect to dashboard and show a Toast
-      alert("Successfully signed in");
-      reset();
-    } catch (error) {
-      console.error(error);
-    }
+    // TODO: should redirect to dashboard and show a Toast
+    reset();
   };
 
   const logOut = () => {

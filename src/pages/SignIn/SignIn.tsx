@@ -7,6 +7,7 @@ import { Text } from "../../components/Text";
 import { TextInput } from "../../components/TextInput";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
 
 interface Inputs {
   email: string;
@@ -16,9 +17,15 @@ interface Inputs {
 export const SignIn = () => {
   const { signIn } = useAuthContext();
   const { register, handleSubmit, reset } = useForm<Inputs>();
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signIn(data, reset);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await signIn(data, reset);
+      setIsSignedIn(true);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -33,6 +40,11 @@ export const SignIn = () => {
             <span className="text-gray-400">Login and start using!</span>
           </Text>
         </header>
+        {isSignedIn && (
+          <Text asChild size="md">
+            <span className="text-gray-100">Signed in</span>
+          </Text>
+        )}
         <form
           className="w-[400px] my-8 flex flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}
