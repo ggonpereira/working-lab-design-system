@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { InputHTMLAttributes, ReactNode } from "react";
+import { forwardRef, InputHTMLAttributes, ReactNode } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 export interface TextInputRootProps {
@@ -11,7 +11,9 @@ export interface TextInputIconProps {
 }
 
 export interface TextInputInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {}
+  extends InputHTMLAttributes<HTMLInputElement> {
+  required?: boolean;
+}
 
 export const TextInputRoot = ({ children }: TextInputRootProps) => (
   <div
@@ -29,11 +31,17 @@ export const TextInputIcon = ({ children }: TextInputIconProps) => (
 );
 TextInputIcon.displayName = "TextInput.Icon";
 
-export const TextInputInput = ({ ...props }: TextInputInputProps) => (
-  <input
-    className="bg-transparent outline-none flex-1 text-gray-100 text-xs placeholder:text-gray-400"
-    {...props}
-  />
+const TextInputInput = forwardRef<HTMLInputElement, TextInputInputProps>(
+  ({ error, ...props }: any, ref) => (
+    <>
+      <input
+        className="bg-transparent outline-none flex-1 text-gray-100 text-xs placeholder:text-gray-400"
+        {...props}
+        ref={ref}
+      ></input>
+      {error}
+    </>
+  )
 );
 TextInputInput.displayName = "TextInput.Input";
 
