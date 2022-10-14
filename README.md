@@ -29,6 +29,21 @@
 
 ---
 
+<h2>To-do and Possible Improvements ⚙</h2>
+
+- Could use `react-router-dom` to create routing
+- Could use `yup` to create better validations to inputs
+- Could improve the inputs to show error messages
+- Could refactor the code to break into smaller components
+- Could refactor to use atomic design components structure
+- Could use cookies as a way to save my user token
+- Could create an API for the sign in
+- Could create more pages
+
+etc...
+
+---
+
 <h2>Installation 👨‍💻</h2>
 
 ### Before you can start, you have to install these tools on your machine
