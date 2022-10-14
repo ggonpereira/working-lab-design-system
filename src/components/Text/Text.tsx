@@ -13,7 +13,7 @@ export const Text = ({ size = "md", children, asChild }: TextProps) => {
 
   return (
     <Comp
-      className={clsx("text-gray-100 font-sans", {
+      className={clsx("text-gray-100 font-sans w-fit", {
         "text-xs": size === "sm",
         "text-sm": size === "md",
         "text-md": size === "lg",
